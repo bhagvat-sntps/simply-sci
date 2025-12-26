@@ -21,16 +21,9 @@ A FastAPI service to summarize research papers in simple terms.
   - `http://localhost:8000/docs`
 
 
-## API
-- Health: `GET /health/` → `{"status": "ok"}` implemented in [`app.api.health.health.health_check`](app/api/health/health.py).
-
 ## Project Structure
 - `app/api/...`: API routers (health, future summarization endpoints).
 - `app/core/...`: config, logging, security.
 - `app/db/...`: database base and session (future use).
 - `app/middleware/...`: request ID middleware (future use).
 
-## Development
-- Edit the active app in VS Code and use the integrated terminal:
-  - Run: `uvicorn app.main:app --reload`
-  - Logs and output appear in the Output panel.
