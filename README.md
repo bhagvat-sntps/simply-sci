@@ -10,7 +10,7 @@ A FastAPI service to summarize research papers in simple terms.
 
 ## Requirements
 - Python >= 3.14
-- Dependencies: FastAPI, Uvicorn , poetry (plus Pydantic for settings in [app/core/config.py](app/core/config.py)).
+- Dependencies: FastAPI, Uvicorn , Poetry, Pydantic 
 
 ## Quickstart
 - Install dependencies
