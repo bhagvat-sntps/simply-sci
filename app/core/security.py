@@ -1,0 +1,1 @@
+# contains configuration for Auth/JWT helpers
