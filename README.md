@@ -1,6 +1,6 @@
 # simply-sci
 
-A FastAPI service to summarize research papers in simple terms.
+A FastAPI service to summarize research paper abstract in simple terms.
 
 ## Tech Stack
 - FastAPI (API framework)
