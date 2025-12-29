@@ -1,26 +1,28 @@
-# app/main.py
 from fastapi import FastAPI
-from app.api.health import router as health_router
+import uvicorn
+from app.core.config import settings
+from app.core.lifespan import lifespan
+from app.api.router import api_router
 
 
 def create_app() -> FastAPI:
     """
     Create and configure the FastAPI application.
     """
-    app = FastAPI(title="My API")
-    app.include_router(health_router, prefix="/health", tags=["health"])
+    app = FastAPI(title="My API",lifespan=lifespan)
+    app.include_router(api_router)
     return app
 
 
-#Initialize the FastAPI application.
 app = create_app()
 
 
-#Event handlers for startup and shutdown.
-@app.on_event("startup")
-async def startup():
-    print("App starting...")
-
-@app.on_event("shutdown")
-async def shutdown():
-    print("App shutting down...")
+# Development server entry point.
+def dev():
+    uvicorn.run(
+        "app.main:app",
+        host=settings.HOST,
+        port=settings.PORT,
+        reload=True,
+        log_level="debug"
+)

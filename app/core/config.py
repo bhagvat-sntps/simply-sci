@@ -1,13 +1,10 @@
-# This file contains app configuration settings.
+# This file contains app configuration/Envs settings.
 
-
-
-from pydantic import BaseSettings
+from pydantic_settings import BaseSettings
 
 class Settings(BaseSettings):
-    PROJECT_NAME: str = "MyAwesomeApp"
-    DATABASE_URL: str
-    SECRET_KEY: str
+    PORT: int = 8000
+    HOST: str = "0.0.0.0"  
 
     class Config:
         env_file = ".env"
