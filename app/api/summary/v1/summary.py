@@ -1,4 +1,5 @@
-from fastapi import APIRouter
+from http.client import HTTPException
+from fastapi import APIRouter, HTTPException
 import logging
 
 
@@ -11,4 +12,5 @@ async def health_check() -> dict:
     Returns a summary status to verify that the Summary API is running.
     """
     logger.info("summary endpoint called......")
+    raise(HTTPException(status_code=500, detail="Just testing exception handler"))
     return {"status": "ok"} 
