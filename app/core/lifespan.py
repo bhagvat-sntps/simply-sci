@@ -1,5 +1,8 @@
 from fastapi import FastAPI
 from fastapi.concurrency import asynccontextmanager
+import logging
+
+logger = logging.getLogger(__name__)
 
 @asynccontextmanager
 async def lifespan(app: FastAPI):
@@ -11,11 +14,12 @@ async def lifespan(app: FastAPI):
     Also this triggered on os process signals like SIGTERM and SIGINT, which used to handle graceful shutdowns.
 
     """
-    # Startup activities
-    print("App starting...Preparing resources...")
     try:
+        logger.info("Application startup")
         yield
+        logger.info("Application shutdown" , exc_info= {    
+                 
+        })
     finally:
-        # Shutdown activities
-        print("App shutting down...releasing resources...")
+        logger.info("App shutting down...Cleaning up resources...")
 
