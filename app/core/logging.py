@@ -6,7 +6,7 @@ import logging
 import sys
 from pythonjsonlogger import jsonlogger
 from app.core.config import settings
-from app.filters.logging_filters import RequestContextFilter
+from app.core.logging_filters import RequestContextFilter
 
 
 def setup_logging():
