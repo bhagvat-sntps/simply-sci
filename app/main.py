@@ -10,6 +10,8 @@ from app.core.exception import (
     validation_exception_handler,
     http_exception_handler,
     unhandled_exception_handler,
+    external_service_exception_handler,
+    ExternalServiceError
 )
 
 
@@ -33,6 +35,10 @@ def create_app() -> FastAPI:
     app.add_exception_handler(
         HTTPException,
         http_exception_handler,
+    )
+    app.add_exception_handler(
+        ExternalServiceError,
+        external_service_exception_handler,
     )
     app.add_exception_handler(
         Exception,

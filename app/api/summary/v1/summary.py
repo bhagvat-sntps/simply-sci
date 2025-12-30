@@ -1,14 +1,22 @@
-from fastapi import APIRouter
+from fastapi import APIRouter, Depends
 import logging
+
+from app.core.config import settings
+from app.services.summary_service import SummaryService
+from app.schemas.summary import SummaryRequest, SummaryResponse
 
 
 router: any = APIRouter()
 logger = logging.getLogger(__name__)
 
-@router.get("/", tags=["Summary"])
-async def health_check() -> dict:
+
+@router.post("/", response_model=SummaryResponse , tags=["Summary"])
+async def summarize(
+    payload: SummaryRequest,
+    service: SummaryService = Depends(SummaryService),
+):
     """
-    Returns a summary status to verify that the Summary API is running.
+    Summarize the given research paper abstract content.
     """
-    logger.info("summary endpoint called......")
-    return {"status": "ok"} 
+    summary = await service.summarize_abstract(payload.content)
+    return {"summary": summary}

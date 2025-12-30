@@ -6,6 +6,7 @@ class Settings(BaseSettings):
     PORT: int = 8000
     HOST: str = "0.0.0.0"  
     debug: bool = True
+    API_TOKEN: str = None
 
     class Config:
         env_file = ".env"
