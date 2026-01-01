@@ -5,6 +5,7 @@ from app.core.config import settings
 from app.core.exception import ExternalServiceError
 from app.schemas.summary import AbstractSummaryResponse
 
+
 class OpenAIGateway:
     def __init__(self):
         self.client = httpx.AsyncClient(
@@ -18,6 +19,10 @@ class OpenAIGateway:
         )
 
     async def aclose(self) -> None:
+        """
+        define method to close the httpx client which releases connection pool requests,
+        call this method during app shutdown in lifespan.py
+        """
         await self.client.aclose()
 
     async def summarize(self, text: str) -> AbstractSummaryResponse:
@@ -65,7 +70,7 @@ class OpenAIGateway:
                               }},
                               "seo_keywords": []
                             }}
-                            """
+                            """,
                         },
                     ],
                 },
