@@ -20,7 +20,7 @@ class OpenAIGateway:
 
     async def aclose(self) -> None:
         """
-        define method to close the httpx client which releases connection pool requests,
+        define method to close the httpx client which releases http connection pool requests,
         call this method during app shutdown in lifespan.py
         """
         await self.client.aclose()
@@ -95,17 +95,22 @@ class OpenAIGateway:
                     ) from e
                 return AbstractSummaryResponse.model_validate(data)
 
-        except httpx.TimeoutException:
+        ## catch timeout error
+        except httpx.TimeoutException as e:
             raise ExternalServiceError(
                 message="OpenAI timeout",
                 details="Request to OpenAI timed out",
             )
+
+        ## catch specific http errors
         except httpx.HTTPStatusError as e:
             raise ExternalServiceError(
                 message="OpenAI returned an error",
                 status_code=e.response.status_code,
                 details=e.response.text,
             )
+
+        ## general exception catch-all
         except Exception as e:
             raise ExternalServiceError(
                 message="Unexpected OpenAI error",
