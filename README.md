@@ -47,6 +47,15 @@ A FastAPI service to summarize research paper abstract in simple terms and provi
 
 ## Examples
 
+### how to generate open api token
+
+
+visit below docs  -> click <b>Use this model</b> --> click <b>Create Personal access token</b>
+
+Update token to the below req header to test
+
+[github marketplace / gpt 4o model](https://github.com/marketplace/models/azure-openai/gpt-4o/playground/code)
+
 Quick example (from docs/examples.md):
 
 ```bash
