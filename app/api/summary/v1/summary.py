@@ -12,7 +12,7 @@ router: any = APIRouter()
 logger = logging.getLogger(__name__)
 
 
-@router.post("/", response_model=AbstractSummaryResponse, tags=["Summary"])
+@router.post("/", response_model=AbstractSummaryResponse)
 async def summarize(
     payload: SummaryRequest,
     service: SummaryService = Depends(SummaryService),
