@@ -134,21 +134,7 @@
 
 ```json
 {
-	"title": "Studying the Atmospheres of Super-Earth Exoplanets",
-	"summary": {
-		"problem": "Scientists want to understand the atmospheres of super-Earth exoplanets, which are planets outside our solar system that are larger than Earth.",
-		"goal": "The goal is to find out if the chemical makeup of these atmospheres matches what we expect based on scientific models.",
-		"what_they_did": "Researchers used advanced space-based tools to observe these planets multiple times and analyzed the data using a special method called Bayesian retrieval.",
-		"what_they_found": "They found that the chemical compositions of the atmospheres do not match predictions, suggesting complex processes are happening, like mixing of gases and possible formation of tiny particles.",
-		"why_it_matters": "These findings challenge our current understanding of how planets like Earth evolve and could have implications for finding signs of life on other planets."
-	},
-	"seo_keywords": [
-		"super-Earth exoplanets",
-		"atmospheric features",
-		"chemical equilibrium",
-		"Bayesian retrieval",
-		"planetary evolution"
-	]
+	"content" : "High-precision transmission spectroscopy of temperate super-Earth exoplanets has revealed atmospheric features inconsistent with chemical equilibrium predictions. In this work, we analyze multi-epoch observations obtained with space-based infrared instruments using a hierarchical Bayesian retrieval framework. The inferred molecular abundances suggest the presence of photochemically driven disequilibrium processes, vertical mixing, and possible aerosol formation. While no definitive biosignatures are identified, the observed atmospheric complexity challenges existing models of terrestrial exoplanet evolution."
 }
 ```
 
