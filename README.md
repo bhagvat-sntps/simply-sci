@@ -30,11 +30,16 @@ A FastAPI service to summarize research paper abstract in simple terms and provi
   - `http://localhost:8000/docs`
 
 ## Project Structure
-- `app/api/...`: API routers
-- `app/api/router.py`: single file to export route
+- `app/api/...`: API routers (with versioning)
 - `app/core/...`: config, logging, security.
+- `app/models/...` : db models (future use)
+- `app/schemas/...` : required dto (Data transfer object for ex: req signature object , response object etc)
+-  `app/services/...` : common place for keeping business logic
 - `app/db/...`: database base and session (future use).
+- `migrations/...` : db migrations (future use)
 - `app/middleware/...`: common place for middleware
+- `app/gateways/...`: app external connection commom place (open api http call etc)
+- `docs/...`: relevant docs
 
 ## API Docs
 - Swagger UI: `http://localhost:8000/docs`
