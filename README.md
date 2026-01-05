@@ -25,6 +25,7 @@ A FastAPI service to summarize research paper abstract in simple terms and provi
 - Install dependencies
   - `poetry install` 
 - Run the API:
+  - `poetry run dev` (this one configured check main.py)  OR   
   - `poetry run uvicorn app.main:app --reload`
 - Open API docs:
   - `http://localhost:8000/docs`
