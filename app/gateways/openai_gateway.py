@@ -12,7 +12,6 @@ class OpenAIGateway:
             base_url="https://models.github.ai/inference",
             timeout=15.0,
             headers={
-                "Authorization": f"Bearer {settings.API_TOKEN}",
                 "Content-Type": "application/json",
                 "Accept": "application/json",
             },
@@ -25,10 +24,13 @@ class OpenAIGateway:
         """
         await self.client.aclose()
 
-    async def summarize(self, text: str) -> AbstractSummaryResponse:
+    async def summarize(self, text: str, authorization: str) -> AbstractSummaryResponse:
         try:
             response = await self.client.post(
                 "/chat/completions",
+                headers={
+                    "Authorization": authorization,
+                },
                 json={
                     "model": "openai/gpt-4o-mini",
                     "temperature": 0.2,
