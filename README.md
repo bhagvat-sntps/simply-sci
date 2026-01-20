@@ -68,7 +68,7 @@ curl -X POST 'http://localhost:8000/summary/' \
   }'
 ```
 
-Expected response:
+Response:
 
 ```json
 {
