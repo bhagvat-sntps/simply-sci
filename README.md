@@ -97,4 +97,6 @@ See more examples in docs/examples.md.
 - improve api request time
 - understand LLM api attributes
 - deploy using ketee (docker+kubernetes)
+- Add Vector DB functionality with PG
+- In future, connect to LLM model locally and impelmet RAG
 
